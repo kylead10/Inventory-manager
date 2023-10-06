@@ -1,7 +1,7 @@
 import React from 'react';
 
 const App = () => {
-  return <div>Inventory</div>;
+  return <div>Inventory Manager</div>;
 };
 
 export default App;
