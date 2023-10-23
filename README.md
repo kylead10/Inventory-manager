@@ -1,1 +1,1 @@
-This is a vite react project th
+This is a vite react project that manages a
