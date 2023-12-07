@@ -1,1 +1,1 @@
-This is a vitereact project that manages a supermarket inventory.
+This is a vitreact project that manages a supermarket inventory.
