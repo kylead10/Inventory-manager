@@ -1,1 +1,1 @@
-This is a vproject that manages a supermarket inventory.
+This is a project that manages a supermarket inventory.
