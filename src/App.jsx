@@ -5,15 +5,17 @@ import Login from './components/Login';
 import InventoryListing from './components/InventoryListing';
 import CreateInventory from './components/CreateInventory';
 import EditInventory from './components/EditInventory';
+import DeleteInventory from './components/DeleteInventory';
 
 function App() {
   return (
     <Router>
       <Switch>
         <Route path='/login' component={Login} />
-        <PrivateRoute exact path='/' component={InventoryListing} />
-        <PrivateRoute path='/create' component={CreateInventory} />
-        <PrivateRoute path='/edit/:id' component={EditInventory} />
+        <Route path='/inventory' component={InventoryList} />
+        <Route path='/create' component={CreateInventory} />
+        <Route path='/edit/:itemId' component={EditInventory} />
+        <Route path='/delete/:itemId' component={DeleteInventory} />
       </Switch>
     </Router>
   );
