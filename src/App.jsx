@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from './components/Login';
 import InventoryListing from './components/InventoryListing';
 import CreateInventory from './components/CreateInventory';
@@ -8,15 +8,17 @@ import DeleteInventory from './components/DeleteInventory';
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route path='/login' component={Login} />
-        <Route path='/inventory' component={InventoryListing} />
-        <Route path='/create' component={CreateInventory} />
-        <Route path='/edit/:itemId' component={EditInventory} />
-        <Route path='/delete/:itemId' component={DeleteInventory} />
-      </Switch>
-    </Router>
+    <>
+      <Router>
+        <Routes>
+          <Route path='/login' element={Login} />
+          <Route path='/inventory' element={InventoryListing} />
+          <Route path='/create' element={CreateInventory} />
+          <Route path='/edit/:itemId' element={EditInventory} />
+          <Route path='/delete/:itemId' element={DeleteInventory} />
+        </Routes>
+      </Router>
+    </>
   );
 }
 
