@@ -1,6 +1,5 @@
-// InventoryList.js
 import React from 'react';
-import { useAuth } from './AuthContext';
+import { useAuth } from '../AuthContext';
 
 const InventoryListing = () => {
   const { user, logout } = useAuth();
