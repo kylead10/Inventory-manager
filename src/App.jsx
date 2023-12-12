@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import PrivateRoute from './components/PrivateRoute';
 import Login from './components/Login';
 import InventoryListing from './components/InventoryListing';
 import CreateInventory from './components/CreateInventory';
@@ -12,7 +11,7 @@ function App() {
     <Router>
       <Switch>
         <Route path='/login' component={Login} />
-        <Route path='/inventory' component={InventoryList} />
+        <Route path='/inventory' component={InventoryListing} />
         <Route path='/create' component={CreateInventory} />
         <Route path='/edit/:itemId' component={EditInventory} />
         <Route path='/delete/:itemId' component={DeleteInventory} />
