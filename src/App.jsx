@@ -13,9 +13,9 @@ function App() {
         <Routes>
           <Route path='/' element={<Login />} />
           <Route path='/inventory' element={<InventoryListing />} />
-          <Route path='/create' element={CreateInventory} />
-          <Route path='/edit/:itemId' element={EditInventory} />
-          <Route path='/delete/:itemId' element={DeleteInventory} />
+          <Route path='/create' element={<CreateInventory />} />
+          <Route path='/edit/:itemId' element={<EditInventory />} />
+          <Route path='/delete/:itemId' element={<DeleteInventory />} />
         </Routes>
       </Router>
     </>
