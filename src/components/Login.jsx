@@ -4,16 +4,20 @@ import { useAuth } from '../AuthContext';
 import './Login.css';
 
 const Login = () => {
-  const { signInWithPopup } = useAuth(); // Assuming you have a signInWithPopup function in your AuthContext
+  const { auth } = useAuth(); // Assuming you have a 'auth' object in your AuthContext
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = async () => {
     try {
-      // Use your authentication method here, for example, signInWithPopup
-      await signInWithPopup();
+      // Use Firebase Authentication to sign in with email and password
+      await auth.signInWithEmailAndPassword(email, password);
+
+      // Handle successful login
+      console.log('Login successful');
     } catch (error) {
       console.error(error);
+      // Handle login error
     }
   };
 

@@ -7,7 +7,7 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   const login = (email, password) => {
-    // Implement your authentication logic here
+    // Allow any email and password combination
     setUser({ email });
   };
 
