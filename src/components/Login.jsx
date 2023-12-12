@@ -4,12 +4,17 @@ import { useAuth } from '../AuthContext';
 import './Login.css';
 
 const Login = () => {
-  const { login } = useAuth();
+  const { signInWithPopup } = useAuth(); // Assuming you have a signInWithPopup function in your AuthContext
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = () => {
-    login(email, password);
+  const handleLogin = async () => {
+    try {
+      // Use your authentication method here, for example, signInWithPopup
+      await signInWithPopup();
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -20,6 +25,8 @@ const Login = () => {
         placeholder='Email'
         value={email}
         onChange={(e) => setEmail(e.target.value)}
+        pattern='[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}'
+        title='Enter a valid email address'
       />
       <input
         type='password'
