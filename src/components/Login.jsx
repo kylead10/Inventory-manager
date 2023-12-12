@@ -1,22 +1,32 @@
-import React from 'react';
-import { useHistory } from 'react-router-dom';
+// Login.js
+import React, { useState } from 'react';
+import { useAuth } from '../AuthContext';
 
 const Login = () => {
-  const history = useHistory();
+  const { login } = useAuth();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleLogin = () => {
-    // Implement your login logic here
-    // For simplicity, set a dummy authentication status
-    const isAuthenticated = true;
-    if (isAuthenticated) {
-      history.push('/');
-    }
+    login(email, password);
   };
 
   return (
     <div>
       <h2>Login</h2>
-      <button onClick={handleLogin}>Log In</button>
+      <input
+        type='text'
+        placeholder='Email'
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <input
+        type='password'
+        placeholder='Password'
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+      <button onClick={handleLogin}>Login</button>
     </div>
   );
 };
