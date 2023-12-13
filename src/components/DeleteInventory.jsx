@@ -1,7 +1,7 @@
 import React from 'react';
 
 const DeleteInventory = () => {
-  return <div>DeleteInventory</div>;
+  return <div>Delete Inventory</div>;
 };
 
 export default DeleteInventory;
