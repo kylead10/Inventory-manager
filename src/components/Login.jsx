@@ -28,8 +28,8 @@ const Login = () => {
         placeholder='Email'
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        pattern='[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}'
-        title='Enter a valid email address'
+        // pattern='[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}'
+        // title='Enter a valid email address'
       />
       <input
         type='password'
