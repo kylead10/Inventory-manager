@@ -11,7 +11,7 @@ const Login = () => {
 
   const [errors, setErrors] = useState({});
   const { login } = useAuth(); // Destructure the login function from the useAuth hook
-
+  const navigate = useNavigate();
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
     setErrors({}); // Clear errors on input change
@@ -23,7 +23,7 @@ const Login = () => {
     try {
       login(values.email, values.password);
       console.log('Login successful');
-      navigate('/create-inventory');
+      navigate('../inventory');
     } catch (error) {
       setErrors({ general: 'Invalid email or password' });
       console.error(error.message);
