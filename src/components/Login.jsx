@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Login.css';
 import { useAuth } from '../AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [values, setValues] = useState({
@@ -22,6 +23,7 @@ const Login = () => {
     try {
       login(values.email, values.password);
       console.log('Login successful');
+      navigate('/create-inventory');
     } catch (error) {
       setErrors({ general: 'Invalid email or password' });
       console.error(error.message);
