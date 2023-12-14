@@ -27,7 +27,7 @@ const Login = () => {
       <input
         type='text'
         placeholder='Email'
-        value={email}
+        value={values.email}
         onChange={handleChange}
         // pattern='[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}'
         // title='Enter a valid email address'
@@ -35,7 +35,7 @@ const Login = () => {
       <input
         type='password'
         placeholder='Password'
-        value={password}
+        value={values.password}
         onChange={handleChange}
       />
       <button onClick={handleLogin}>Login</button>
