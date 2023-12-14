@@ -1,7 +1,6 @@
-// Login.jsx
 import React, { useState } from 'react';
 import './Login.css';
-import { AuthProvider, useAuth } from '../AuthContext';
+import { useAuth } from '../AuthContext';
 
 const Login = () => {
   const [values, setValues] = useState({
@@ -10,6 +9,7 @@ const Login = () => {
   });
 
   const [errors, setErrors] = useState({});
+  const { login } = useAuth(); // Destructure the login function from the useAuth hook
 
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
@@ -18,15 +18,14 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // Assuming AuthContext has a login function
-    AuthContext.login(values.email, values.password)
-      .then(() => {
-        console.log('Login successful');
-      })
-      .catch((error) => {
-        setErrors({ general: 'Invalid email or password' });
-        console.error(error);
-      });
+    // Call the login function from the useAuth hook
+    try {
+      login(values.email, values.password);
+      console.log('Login successful');
+    } catch (error) {
+      setErrors({ general: 'Invalid email or password' });
+      console.error(error.message);
+    }
   };
 
   return (
