@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { useAuth } from '../AuthContext';
+// import { useAuth } from '../AuthContext';
 import './Login.css';
 
 const Login = () => {
-  const { auth } = useAuth(); // Assuming you have a 'auth' object in your AuthContext
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [values, setValues] = useState({
+    email: '',
+    password: '',
+  });
 
   const handleLogin = async () => {
     try {
@@ -27,7 +28,7 @@ const Login = () => {
         type='text'
         placeholder='Email'
         value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        onChange={handleChange}
         // pattern='[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}'
         // title='Enter a valid email address'
       />
@@ -35,7 +36,7 @@ const Login = () => {
         type='password'
         placeholder='Password'
         value={password}
-        onChange={(e) => setPassword(e.target.value)}
+        onChange={handleChange}
       />
       <button onClick={handleLogin}>Login</button>
     </div>
