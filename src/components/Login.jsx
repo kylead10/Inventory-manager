@@ -1,6 +1,7 @@
+// Login.jsx
 import React, { useState } from 'react';
-// import { useAuth } from '../AuthContext';
 import './Login.css';
+import { AuthProvider, useAuth } from '../AuthContext';
 
 const Login = () => {
   const [values, setValues] = useState({
@@ -8,35 +9,49 @@ const Login = () => {
     password: '',
   });
 
+  const [errors, setErrors] = useState({});
+
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
+    setErrors({}); // Clear errors on input change
   };
 
   const handleLogin = (e) => {
     e.preventDefault();
-    validation(values);
+    // Assuming AuthContext has a login function
+    AuthContext.login(values.email, values.password)
+      .then(() => {
+        console.log('Login successful');
+      })
+      .catch((error) => {
+        setErrors({ general: 'Invalid email or password' });
+        console.error(error);
+      });
   };
 
   return (
     <div>
       <h2>Login</h2>
-      <input
-        type='text'
-        name='email'
-        placeholder='Email'
-        value={values.email}
-        onChange={handleChange}
-        // pattern='[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}'
-        // title='Enter a valid email address'
-      />
-      <input
-        type='password'
-        name='password'
-        placeholder='Password'
-        value={values.password}
-        onChange={handleChange}
-      />
-      <button onClick={handleLogin}>Login</button>
+      <form onSubmit={handleLogin}>
+        <input
+          type='text'
+          name='email'
+          placeholder='Email'
+          value={values.email}
+          onChange={handleChange}
+        />
+        {errors.email && <p style={{ color: 'red' }}>{errors.email}</p>}
+        <input
+          type='password'
+          name='password'
+          placeholder='Password'
+          value={values.password}
+          onChange={handleChange}
+        />
+        {errors.password && <p style={{ color: 'red' }}>{errors.password}</p>}
+        <button type='submit'>Login</button>
+      </form>
+      {errors.general && <p style={{ color: 'red' }}>{errors.general}</p>}
     </div>
   );
 };
