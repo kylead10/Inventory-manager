@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const InventoryListing = () => {
   const { user, logout } = useAuth();
   const [inventory, setInventory] = useState([]);
+  const navigate = useNavigate();
 
   // Assume you have a function to fetch the inventory data
   const fetchInventory = async () => {
@@ -46,7 +48,7 @@ const InventoryListing = () => {
         </tbody>
       </table>
 
-      <button>Add More Items</button>
+      <button onClick={() => navigate('/create')}>Add More Items</button>
       <button onClick={logout}>Logout</button>
     </div>
   );
