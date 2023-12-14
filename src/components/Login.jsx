@@ -8,17 +8,13 @@ const Login = () => {
     password: '',
   });
 
-  const handleLogin = async () => {
-    try {
-      // Use Firebase Authentication to sign in with email and password
-      await auth.signInWithEmailAndPassword(email, password);
+  const handleChange = (e) => {
+    setValues({ ...values, [e.target.name]: e.target.value });
+  };
 
-      // Handle successful login
-      console.log('Login successful');
-    } catch (error) {
-      console.error(error);
-      // Handle login error
-    }
+  const handleLogin = (e) => {
+    e.preventDefault();
+    validation(values);
   };
 
   return (
@@ -26,6 +22,7 @@ const Login = () => {
       <h2>Login</h2>
       <input
         type='text'
+        name='email'
         placeholder='Email'
         value={values.email}
         onChange={handleChange}
@@ -34,6 +31,7 @@ const Login = () => {
       />
       <input
         type='password'
+        name='password'
         placeholder='Password'
         value={values.password}
         onChange={handleChange}
