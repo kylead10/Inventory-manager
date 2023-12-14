@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const CreateInventory = () => {
   const [item, setItem] = useState({
@@ -7,7 +8,7 @@ const CreateInventory = () => {
     price: '',
     description: '',
   });
-
+  const navigate = useNavigate();
   const handleChange = (e) => {
     setItem({ ...item, [e.target.name]: e.target.value });
   };
@@ -74,6 +75,9 @@ const CreateInventory = () => {
         </div>
         <button type='submit'>Create Item</button>
       </form>
+      <button onClick={() => navigate('/inventory')}>
+        Back to Inventory Listing
+      </button>
     </div>
   );
 };
