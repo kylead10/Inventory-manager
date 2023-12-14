@@ -24,6 +24,12 @@ const InventoryListing = () => {
     fetchInventory();
   }, []);
 
+  const handleLogout = () => {
+    logout();
+    // Navigate to the login page
+    navigate('/');
+  };
+
   return (
     <div>
       <h2>Welcome, {user?.email}!</h2>
@@ -49,7 +55,7 @@ const InventoryListing = () => {
       </table>
 
       <button onClick={() => navigate('/create')}>Add More Items</button>
-      <button onClick={logout}>Logout</button>
+      <button onClick={handleLogout}>Logout</button>
     </div>
   );
 };
