@@ -1,26 +1,10 @@
 import React, { createContext, useContext, useState } from 'react';
 
-const AuthContext = createContext();
+const AuthContext = (values) => {
+  let errors = {};
 
-export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
-
-  const login = (email, password) => {
-    // Allow any email and password combination
-    setUser({ email });
-  };
-
-  const logout = () => {
-    setUser(null);
-  };
-
-  return (
-    <AuthContext.Provider value={{ user, login, logout }}>
-      {children}
-    </AuthContext.Provider>
-  );
-};
-
-export const useAuth = () => {
-  return useContext(AuthContext);
+  if (!values.name) {
+    errors.name = 'Email Required';
+  }
+  if (!values.password) errors.password = 'Password Required';
 };
