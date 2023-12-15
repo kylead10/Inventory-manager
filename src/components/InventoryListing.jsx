@@ -33,8 +33,8 @@ const InventoryListing = () => {
 
   return (
     <div>
-      <h2>Welcome, {user?.email}!</h2>
-
+      <h2>Welcome, </h2>
+      <h3>{user?.email}!</h3>
       <h3>Inventory Listing</h3>
       <table>
         <thead>
