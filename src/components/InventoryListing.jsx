@@ -39,6 +39,7 @@ const InventoryListing = () => {
         <thead>
           <tr>
             <th>Name</th>
+            <br />
             <th>Price</th>
             <th>Total Stock</th>
           </tr>
