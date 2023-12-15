@@ -53,7 +53,7 @@ const CreateInventory = () => {
           />
         </div>
         <div>
-          <label>Price:</label>
+          <label> Price (NGN):</label>
           <input
             type='number'
             name='price'
