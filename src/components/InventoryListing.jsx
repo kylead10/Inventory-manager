@@ -35,7 +35,7 @@ const InventoryListing = () => {
     <div className='listing_inventory'>
       <h4 className='header'>Welcome, </h4>
       <h2 className='user'>{user?.email}!</h2>
-      <h3>Inventory Listing</h3>
+      <h3>INVENTORY LISTING</h3>
       <table>
         <thead>
           <tr>
