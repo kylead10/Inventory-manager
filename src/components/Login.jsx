@@ -32,7 +32,7 @@ const Login = () => {
 
   return (
     <div>
-      <h2>Login</h2>
+      <h2 className='login'>Login</h2>
       <form onSubmit={handleLogin}>
         <input
           type='text'
