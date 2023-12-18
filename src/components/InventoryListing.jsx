@@ -56,8 +56,12 @@ const InventoryListing = () => {
         </tbody>
       </table>
 
-      <button onClick={() => navigate('/create')}>Add More Items</button>
-      <button onClick={handleLogout}>Logout</button>
+      <button className='add' onClick={() => navigate('/create')}>
+        Add More Items
+      </button>
+      <button className='logout' onClick={handleLogout}>
+        Logout
+      </button>
     </div>
   );
 };
