@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { useInventory } from './InventoryContext';
 import './InventoryListingStyle.css';
 
 const InventoryListing = () => {
@@ -9,16 +10,16 @@ const InventoryListing = () => {
   const navigate = useNavigate();
 
   // Assume you have a function to fetch the inventory data
-  const fetchInventory = async () => {
-    try {
-      // Fetch inventory data from your API or database
-      const response = await fetch('api/inventory');
-      const data = await response.json();
-      setInventory(data);
-    } catch (error) {
-      console.error('Error fetching inventory:', error);
-    }
-  };
+  // const fetchInventory = async () => {
+  //   try {
+  //     // Fetch inventory data from your API or database
+  //     const response = await fetch('api/inventory');
+  //     const data = await response.json();
+  //     setInventory(data);
+  //   } catch (error) {
+  //     console.error('Error fetching inventory:', error);
+  //   }
+  // };
 
   useEffect(() => {
     // Fetch inventory data when the component mounts
