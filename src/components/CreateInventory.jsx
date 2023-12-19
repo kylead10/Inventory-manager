@@ -9,10 +9,6 @@ const CreateInventory = () => {
     price: '',
     description: '',
   });
-  // const navigate = useNavigate();
-  // const handleChange = (e) => {
-  //   setItem({ ...item, [e.target.name]: e.target.value });
-  // };
 
   const { addInventoryItem } = useInventory();
   const navigate = useNavigate();
