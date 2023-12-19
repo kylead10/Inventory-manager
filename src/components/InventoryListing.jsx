@@ -24,7 +24,7 @@ const InventoryListing = () => {
   useEffect(() => {
     // Fetch inventory data when the component mounts
     fetchInventory();
-  }, []);
+  }, [fetchInventory]);
 
   const handleLogout = () => {
     logout();
