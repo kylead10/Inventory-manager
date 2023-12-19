@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useInventory } from './InventoryContext';
 
 const CreateInventory = () => {
   const [item, setItem] = useState({
@@ -8,14 +9,17 @@ const CreateInventory = () => {
     price: '',
     description: '',
   });
+  // const navigate = useNavigate();
+  // const handleChange = (e) => {
+  //   setItem({ ...item, [e.target.name]: e.target.value });
+  // };
+
+  const { addInventoryItem } = useInventory();
   const navigate = useNavigate();
-  const handleChange = (e) => {
-    setItem({ ...item, [e.target.name]: e.target.value });
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add your logic for creating inventory item here
+
     console.log('Inventory item created:', item);
     // Reset the form after submission
     setItem({
