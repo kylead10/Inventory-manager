@@ -5,7 +5,7 @@ import InventoryListing from './components/InventoryListing';
 import CreateInventory from './components/CreateInventory';
 import EditInventory from './components/EditInventory';
 import DeleteInventory from './components/DeleteInventory';
-import
+import { InventoryProvider } from './components/InventoryContext';
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
           <Route path='/delete/:itemId' element={<DeleteInventory />} />
         </Routes>
       </Router>
-   </InventoryProvider>
+    </InventoryProvider>
   );
 }
 
