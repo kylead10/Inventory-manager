@@ -57,7 +57,7 @@ const InventoryListing = () => {
       </table>
 
       <button className='add' onClick={() => navigate('/create')}>
-        Add More Items
+        Create new item
       </button>
       <button className='logout' onClick={handleLogout}>
         Logout

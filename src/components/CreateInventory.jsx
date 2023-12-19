@@ -10,8 +10,8 @@ const CreateInventory = () => {
     description: '',
   });
 
-  const { addInventoryItem } = useInventory();
   const navigate = useNavigate();
+  const { addItemToInventory } = useInventory();
 
   const handleChange = (e) => {
     setItem({ ...item, [e.target.name]: e.target.value });
