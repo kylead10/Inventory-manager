@@ -17,10 +17,15 @@ const CreateInventory = () => {
   const { addInventoryItem } = useInventory();
   const navigate = useNavigate();
 
+  const handleChange = (e) => {
+    setItem({ ...item, [e.target.name]: e.target.value });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    // Add the new item to the inventory
+    addInventoryItem(item);
 
-    console.log('Inventory item created:', item);
     // Reset the form after submission
     setItem({
       name: '',
@@ -28,6 +33,9 @@ const CreateInventory = () => {
       price: '',
       description: '',
     });
+
+    // Navigate back to the inventory listing
+    navigate('/inventory');
   };
 
   return (
