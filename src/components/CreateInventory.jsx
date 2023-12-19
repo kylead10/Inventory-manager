@@ -20,7 +20,9 @@ const CreateInventory = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Add the new item to the inventory
-    addInventoryItem(item);
+    console.log('Inventory item created:', item);
+
+    addItemToInventory(item);
 
     // Reset the form after submission
     setItem({
